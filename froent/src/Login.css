@@ -1,0 +1,195 @@
+/* General Body Styling - Now with a vibrant gradient background */
+
+/* This is a wrapper for your React app content.
+   It should be placed directly inside your index.html's body, or be the main div
+   your React app mounts into (e.g., `<div id="root">`).
+   It centers the actual React components over the gradient background.
+*/
+
+/* Login Container - The main frosted glass form box */
+.login-container {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background for glass effect */
+    border-radius: 20px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter, semi-transparent border */
+    box-shadow: 0 8px 32px 0 rgba(32, 42, 179, 0.37); /* Stronger, diffused shadow */
+    backdrop-filter: blur(10px); /* THE FROSTED GLASS EFFECT */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    padding: 40px; /* Generous padding inside the box */
+    width: 100%;
+    max-width: 380px; /* Max width for the form */
+    text-align: center; /* Center text within the box */
+    color: hsl(204, 12%, 92%); /* Default white text for contrast */
+    pointer-events: auto; /* Ensure form elements are clickable (if #root has pointer-events: none) */
+    overflow: hidden; /* Ensures any content or pseudo-elements respect rounded corners */
+    position: relative; /* Needed for pseudo-elements positioning */
+    z-index: 10; /* Ensure it's above the background content */
+}
+
+/* Pseudo-elements for the subtle pink/purple glowing blobs.
+   These still make sense even with a gradient background, enhancing the depth. */
+.login-container::before,
+.login-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%; /* Circular shape */
+    filter: blur(40px); /* Heavy blur to create the glow */
+    z-index: -1; /* Place behind the main content */
+    opacity: 0.7; /* Slightly transparent glow */
+}
+
+.login-container::before {
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.6), rgba(255, 100, 200, 0)); /* Pink gradient */
+}
+
+.login-container::after {
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(100, 0, 255, 0.6), rgba(150, 50, 255, 0)); /* Purple gradient */
+}
+
+h2 {
+    font-size: 2.4em; /* Larger heading for prominence */
+    margin-bottom: 30px; /* More space below heading */
+    color: #dce7df; /* White color for heading */
+    text-shadow: 0 0 15px rgba(0,0,0,0.3); /* Subtle text shadow for readability */
+    font-weight: 600; /* Slightly bolder */
+}
+
+/* Form Group for consistent spacing around labels and inputs */
+.form-group {
+    margin-bottom: 25px; /* Space between each input group */
+    text-align: left; /* Align labels and inputs to the left within their group */
+}
+
+/* Labels for inputs */
+.form-group label {
+    display: block; /* Make label take full width */
+    margin-bottom: 8px; /* Space between label and input */
+    color: #fff; /* White text for labels */
+    font-weight: 500; /* Medium bold */
+    font-size: 1.05em; /* Slightly larger font */
+}
+
+/* Input fields (text and date) */
+.login-container input[type="text"],
+.login-container input[type="date"] {
+    width: calc(100% - 24px); /* Account for padding */
+    padding: 12px 12px; /* Padding inside the input */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Light, semi-transparent border */
+    border-radius: 10px; /* Rounded input corners */
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+    color: #fff; /* White text input */
+    font-size: 1.1em; /* Larger font size */
+    outline: none; /* Remove default browser outline */
+    transition: all 0.3s ease; /* Smooth transition for focus effect */
+    -webkit-appearance: none; /* Remove default date input styling on some browsers */
+}
+
+/* Placeholder text color */
+.login-container input[type="text"]::placeholder,
+.login-container input[type="date"]::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+/* Input focus effect */
+.login-container input[type="text"]:focus,
+.login-container input[type="date"]:focus {
+    border-color: rgba(255, 255, 255, 0.8); /* Brighter border on focus */
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.4); /* Subtle glow on focus */
+    background: rgba(255, 255, 255, 0.25); /* Slightly less transparent */
+}
+
+/* Styling for the date input's dropdown arrow (browser-specific) */
+.login-container input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Makes the calendar icon white */
+    cursor: pointer;
+}
+
+/* Submit Button */
+.login-container button.button {
+    width: 100%;
+    padding: 18px; /* More padding for a larger, prominent button */
+    border: none;
+    border-radius: 10px; /* Match input rounding */
+    background: linear-gradient(45deg, #FF69B4, #8A2BE2); /* Vibrant pink-purple gradient */
+    color: #fff;
+    font-size: 1.3em; /* Larger font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    margin-top: 30px; /* More space above button */
+    letter-spacing: 1px; /* Slightly spread letters */
+}
+
+.login-container button.button:hover {
+    background: linear-gradient(45deg, #FF45A6, #7B1FA2); /* Darker gradient on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Lifted shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.login-container button.button:disabled {
+    background: rgba(128, 128, 128, 0.5); /* Grey out when disabled */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: translateY(0); /* Remove lift when disabled */
+}
+
+/* Messages (success, error, loading) */
+.message {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 25px; /* Space for messages */
+    text-shadow: 0 0 5px rgba(0,0,0,0.1);
+    color: #fff; /* Default message color (will be overridden by specific types) */
+}
+
+.message.success {
+    color: lightgreen;
+    text-shadow: 0 0 10px rgba(0,255,0,0.6);
+}
+
+.message.error {
+    color: #ff6b6b; /* Soft red for errors */
+    text-shadow: 0 0 10px rgba(255,0,0,0.6);
+}
+
+.message.loading {
+    color: rgba(255, 255, 255, 0.7); /* Slightly muted for loading */
+    text-shadow: none;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 600px) {
+    .login-container {
+        margin: 20px; /* Add some margin on smaller screens */
+        padding: 30px 25px; /* Adjust padding */
+        max-width: 95%; /* Allow it to take more width */
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .login-container button.button {
+        padding: 16px;
+        font-size: 1.15em;
+        margin-top: 25px;
+    }
+
+    .message {
+        font-size: 0.9em;
+        margin-top: 20px;
+    }
+}
