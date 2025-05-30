@@ -13,7 +13,7 @@ app.use(express.json()); // Parse JSON request bodies
 app.use("/files", express.static("files"));
 
 // --- MySQL Database Connections ---
-
+const fileDbPool = mysql.createPool({
 // Connection Pool for File Management (pdf_details table)
  host: "bjhzcivb2ugau5ned4ck-mysql.services.clever-cloud.com",
   user: "unum7fe1d1f61bb6",
