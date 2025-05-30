@@ -15,14 +15,14 @@ app.use("/files", express.static("files"));
 // --- MySQL Database Connections ---
 
 // Connection Pool for File Management (pdf_details table)
-const fileDbPool = mysql.createPool({
-  host: "127.0.0.1",
-  user: "root",
-  password: "Ravi@1971",
-  database: "DEEEP", // Database for file details
+ host: "bjhzcivb2ugau5ned4ck-mysql.services.clever-cloud.com",
+  user: "unum7fe1d1f61bb6",
+  password: "S9tSfdwRkdk8D5JJUs12",
+  database: "bjhzcivb2ugau5ned4ck", // Database for file details
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  port:'3306',
 });
 
 fileDbPool.getConnection((err, connection) => {
@@ -37,10 +37,11 @@ fileDbPool.getConnection((err, connection) => {
 
 // Single Connection for Student Login (student_login table)
 const studentLoginDb = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "Ravi@1971",
-  database: "student_login", // Database for student login
+host: 'brvnsnb8eleeladqjsjb-mysql.services.clever-cloud.com',
+    user: 'uc182gt51reqgrbq',
+    password: '7R6Wk8k2MCqOcxMAe1wa',  
+    database: 'brvnsnb8eleeladqjsjb',
+    port:'3306',// Database for student login // Database for student login
 });
 
 studentLoginDb.connect((err) => {
