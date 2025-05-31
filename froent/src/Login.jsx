@@ -31,7 +31,7 @@ function Login({ onLoginSuccess }) {
     try {
       // Make a POST request to your backend's login endpoint
       // Ensure your backend endpoint is configured to receive 'register_number' and 'dob'
-      const response = await fetch('http://localhost:4000/login', { // Verify this endpoint
+      const response = await fetch('https://quetion-app-2.onrender.com/login', { // Verify this endpoint
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
