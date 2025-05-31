@@ -12,7 +12,7 @@ function Download() {
     setLoading(true); // Start loading state
     setError('');     // Clear previous errors
     try {
-      const response = await fetch('http://localhost:4000/get-files');
+      const response = await fetch('https://quetion-app-4.onrender.com/get-files');
       const data = await response.json();
 
       if (response.ok && data.status === 'ok') {
@@ -106,7 +106,7 @@ function Download() {
                 {/* Only render subject if it exists */}
                 {fileInfo.subject && <p>Subject: {fileInfo.subject}</p>}
                 <a
-                  href={`http://localhost:4000/files/${fileInfo.pdf}`} // Link to the actual file for download
+                  href={`https://quetion-app-4.onrender.com/files/${fileInfo.pdf}`} // Link to the actual file for download
                   target="_blank" // Opens in a new tab
                   rel="noopener noreferrer" // Security best practice for target="_blank"
                   className="button"
