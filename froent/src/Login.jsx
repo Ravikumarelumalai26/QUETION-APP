@@ -1,7 +1,7 @@
 // LoginPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // For programmatic navigation
-import './login.css'; // Importing CSS for styling
+import './Login.css'; // Importing CSS for styling
 
 function Login({ onLoginSuccess }) {
   // State for Register Number
