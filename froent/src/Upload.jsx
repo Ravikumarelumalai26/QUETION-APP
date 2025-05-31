@@ -68,7 +68,7 @@ function Upload() {
 
     try {
       // Make a POST request to your backend's upload endpoint
-      const response = await fetch('http://localhost:4000/upload-files', {
+      const response = await fetch('https://quetion-app-4.onrender.com/upload-files', {
         method: 'POST',
         body: formData, // The FormData object is directly passed as the body
       });
