@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+      background: linear-gradient(135deg, #7e3887, #324a8a); 
     
 
     /* NEW: Gradient Background instead of an image */
