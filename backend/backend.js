@@ -36,10 +36,10 @@ app.use("/files", express.static("files"));
 
 // --- MySQL Database Connections ---
 const fileDbPool = mysql.createPool({
-  host: "",
-  user: "",
-  password: "",
-  database: "", // Database for file details
+  host: "bjhzcivb2ugau5ned4ck-mysql.services.clever-cloud.com",
+  user: "unum7fe1d1f61bb6",
+  password: "S9tSfdwRkdk8D5JJUs12",
+  database: "bjhzcivb2ugau5ned4ck",// Database for file details
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -63,10 +63,12 @@ fileDbPool.getConnection()
 // Single Connection for Student Login (student_login table)
 // Using .createConnection().promise() for direct async/await on the connection object
 const studentLoginDb = mysql.createConnection({
-  host: '',
-    user: '',
-    password: '',  
-    database: '',
+ host: 'brvnsnb8eleeladqjsjb-mysql.services.clever-cloud.com',
+    user: 'uc182gt51reqgrbq',
+    password: '7R6Wk8k2MCqOcxMAe1wa',  
+    database: 'brvnsnb8eleeladqjsjb',
+    port:'3306',// Database for student login // Database for student login
+
     // Database for student login
   waitForConnections: true,
 });
