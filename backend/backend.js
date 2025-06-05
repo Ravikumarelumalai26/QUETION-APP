@@ -1,12 +1,12 @@
 
 const express = require("express");
-const mysql = require("mysql2/promise"); // Use mysql2/promise for async/await
+const mysql = require("mysql2/promise"); 
 const cors = require("cors");
 const multer = require("multer"); // For file uploads
 const helmet = require('helmet'); // For security headers
 
 const app = express();
-const port = process.env.PORT || 4000; // Use port from environment variable or default to 4000
+const port = process.env.PORT || 4000; 
 
 // --- Middleware ---
 app.use(cors()); // Enable Cross-Origin Resource Sharing
@@ -36,10 +36,10 @@ app.use("/files", express.static("files"));
 
 // --- MySQL Database Connections ---
 const fileDbPool = mysql.createPool({
-  host: "bjhzcivb2ugau5ned4ck-mysql.services.clever-cloud.com",
-  user: "unum7fe1d1f61bb6",
-  password: "S9tSfdwRkdk8D5JJUs12",
-  database: "bjhzcivb2ugau5ned4ck", // Database for file details
+  host: "",
+  user: "",
+  password: "",
+  database: "", // Database for file details
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -63,10 +63,10 @@ fileDbPool.getConnection()
 // Single Connection for Student Login (student_login table)
 // Using .createConnection().promise() for direct async/await on the connection object
 const studentLoginDb = mysql.createConnection({
-  host: 'brvnsnb8eleeladqjsjb-mysql.services.clever-cloud.com',
-    user: 'uc182gt51reqgrbq',
-    password: '7R6Wk8k2MCqOcxMAe1wa',  
-    database: 'brvnsnb8eleeladqjsjb',
+  host: '',
+    user: '',
+    password: '',  
+    database: '',
     // Database for student login
   waitForConnections: true,
 });
@@ -95,7 +95,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// --- API Endpoints ---
+
 
 // Root API
 app.get("/", (req, res) => {
